@@ -1,0 +1,11 @@
+{
+  "name": "bac-response-api",
+  "version": "1.0.0",
+  "description": "Simple backend for BAC response from Salesforce",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Experenta Dev Team - Eduardo Vásquez",
+  "license": "ISC"
+}
