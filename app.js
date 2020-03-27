@@ -45,7 +45,7 @@ app.get('/transaction/:id', (req, res)=>{
 app.post('/transaction', (req, response) => {
     client.query("INSERT INTO " + 
       "salesforce.transaction__c(Name, OrderID__c, ReasonCodeDesc__c, ReasonCode__c, ResponseCode__c, transaction_appid__c)" +
-      "VALUES($1, $2, $3, $4, $5, $6)", 
+      "VALUES($1, $2, $3, $4, $5, $6) RETURNING *", 
       
       [req.body.OrderID, req.body.OrderID, req.body.ReasonCodeDesc, req.body.ReasonCode, req.body.ResponseCode, req.body.ResponseCode], 
       
@@ -54,7 +54,7 @@ app.post('/transaction', (req, response) => {
           console.log(err);
           response.status(400).send(err);
         } else {
-          response.json(data.rows[0]);
+          response.redirect('https://delcampo.force.com/s/enrollment?id=' + data.rows[0].responsecode__c);
         }
     });
   });
