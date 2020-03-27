@@ -44,10 +44,10 @@ app.get('/transaction/:id', (req, res)=>{
 
 app.post('/transaction', (req, response) => {
     client.query("INSERT INTO" + 
-      "salesforce.transaction__c(Name, OrderID__c, ReasonCodeDesc__c, ReasonCode__c, ResponseCode__c, transaction_appid__c)" +
-      "VALUES ($1, $2, $3, $4, $5, $6)", 
+      "salesforce.transaction__c(OrderID__c, ReasonCodeDesc__c, ReasonCode__c, ResponseCode__c, transaction_appid__c)" +
+      "VALUES ($1, $2, $3, $4, $5)", 
       
-      [req.body.Name, req.body.OrderID, req.body.ReasonCodeDesc, req.body.ReasonCode, req.body.ResponseCode, req.body._id], 
+      [req.body.OrderID, req.body.ReasonCodeDesc, req.body.ReasonCode, req.body.ResponseCode, req.body._id], 
       
       (err, data) => {
         if (err) {
