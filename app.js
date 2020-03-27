@@ -54,7 +54,7 @@ app.post('/transaction', (req, response) => {
           console.log(err);
           response.status(400).send(err);
         } else {
-          response.redirect('https://delcampo.force.com/s/enrollment?id=' + data.rows[0].responsecode__c);
+          response.redirect('https://delcampo.force.com/s/enrollment?id=' + data.rows[0].ReasonCodeDesc__c);
         }
     });
   });
