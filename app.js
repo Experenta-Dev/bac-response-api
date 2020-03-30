@@ -43,11 +43,12 @@ app.get('/transaction/:id', (req, res)=>{
 });
 
 app.post('/transaction', (req, response) => {
+  let transaction_appid__c = Math.floor(Math.random() * (999999 - 1 + 1) + 1);
     client.query("INSERT INTO " + 
       "salesforce.transaction__c(Name, OrderID__c, ReasonCodeDesc__c, ReasonCode__c, ResponseCode__c, transaction_appid__c)" +
       "VALUES($1, $2, $3, $4, $5, $6) RETURNING *", 
       
-      [req.body.OrderID, req.body.OrderID, req.body.ReasonCodeDesc, req.body.ReasonCode, req.body.ResponseCode, req.body.OrderID], 
+      [req.body.OrderID, req.body.OrderID, req.body.ReasonCodeDesc, req.body.ReasonCode, req.body.ResponseCode, transaction_appid__c], 
       
       (err, data) => {
         if (err) {
