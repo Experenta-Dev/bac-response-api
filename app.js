@@ -55,7 +55,7 @@ app.post('/transaction', (req, response) => {
           console.log(err);
           response.status(400).send(err);
         } else {
-          response.redirect('https://delcampo.force.com/s/quotes?id=' + data.rows[0].ReasonCodeDesc__c + "&id2=" + data.rows[0].ReasonCode__c);
+          response.redirect('https://delcampo.force.com/s/bills?id=' + data.rows[0].ReasonCodeDesc__c + "&id2=" + data.rows[0].ReasonCode__c);
         }
     });
   });
