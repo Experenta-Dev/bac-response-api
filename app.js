@@ -58,10 +58,9 @@ app.post('/transaction', (req, response) => {
           let reasonDesc = '';
           for(let i = 0; i < data.rows[0].reasoncodedesc__c.toString().length; i++) {
             if(data.rows[0].reasoncodedesc__c.toString().length[i] != '+') {
-              reasonDesc += data.rows[0].reasoncodedesc__c.toString().length[i];
+              reasonDesc += data.rows[0].reasoncodedesc__c.toString()[i];
             }
           }
-          
           console.log(reasonDesc);
           response.redirect('https://delcampo.force.com/s/bills?id=' + reasonDesc + "&id2=" + data.rows[0].reasoncode__c);
         }
