@@ -57,7 +57,9 @@ app.post('/transaction', (req, response) => {
         } else {
           let reasonDesc = '';
           for(let i = 0; i < data.rows[0].reasoncodedesc__c.toString().length; i++) {
-            reasonDesc = data.rows[0].reasoncodedesc__c.toString().replace("+", " ");
+            if(data.rows[0].reasoncodedesc__c.toString().length[i] != '+') {
+              reasonDesc += data.rows[0].reasoncodedesc__c.toString().length[i];
+            }
           }
           
           console.log(reasonDesc);
