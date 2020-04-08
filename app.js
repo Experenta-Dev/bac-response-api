@@ -55,9 +55,7 @@ app.post('/transaction', (req, response) => {
           console.log(err);
           response.status(400).send(err);
         } else {
-          console.log("Reason Code Desc: ", data.rows[0].ReasonCodeDesc__c);
-          console.log("Reason Code: ", data.rows[0].ReasonCode__c);
-          response.redirect('https://delcampo.force.com/s/bills?id=' + data.rows[0].ReasonCodeDesc__c + "&id2=" + data.rows[0].ReasonCode__c);
+          response.redirect('https://delcampo.force.com/s/bills?id=' + data.rows[0].reasoncodedesc__c + "&id2=" + data.rows[0].reasoncode__c);
         }
     });
   });
